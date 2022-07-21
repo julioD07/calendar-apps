@@ -1,5 +1,6 @@
+import { ca } from "date-fns/locale";
 import { useSelector, useDispatch } from "react-redux"
-import { onAddNewEvent, onSetActiveEvent } from "../store";
+import { onAddNewEvent, onSetActiveEvent, onUpdateEvent } from "../store";
 
 
 export const useCalendarStore = () => {
@@ -16,6 +17,7 @@ export const useCalendarStore = () => {
         //TODO bien
         if (calendarEvent._id) {
           //Actualizar evento
+          dispatch(onUpdateEvent({...calendarEvent}));
         } else {
           //Agregar evento
 
